@@ -15,7 +15,21 @@ public class Exercise2 {
     public boolean existenDuplicados(String str) {
         MyStack<Character> stack = new LinkedListStack<>();
         // Colocar codigo aqui
-
-        return false;
+        for(int i=0; i<str.length(); i++) {
+        	char aux = str.charAt(i);
+        	if(aux!=' ') {
+        		if (aux != ')')
+        			stack.push(aux);
+        		else {
+        			boolean vacio = true;
+        			while(stack.pop() != '(') {
+        				vacio = false;
+        			}
+        			if(vacio)
+        				return true;
+        		}	
+        	}
+        }
+        return false;    
     }
 }
